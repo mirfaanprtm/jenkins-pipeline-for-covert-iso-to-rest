@@ -1,17 +1,13 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
         String bitNumberInput = "";
-        
+
         List<ISO8583DataElements> isoElements = new ArrayList<>();
         isoElements.add(new ISO8583DataElements("bit_0", "mti"));
         isoElements.add(new ISO8583DataElements("bit_2", "Primary Account Number"));
@@ -141,11 +137,6 @@ public class Main {
         isoElements.add(new ISO8583DataElements("bit_126", "additionalData"));
         isoElements.add(new ISO8583DataElements("bit_127", "Reserved for Private use"));
         isoElements.add(new ISO8583DataElements("bit_128", "Message Authentication Code (MAC)"));
-
-        if (bitNumberInput.trim().isEmpty()) {
-            System.out.println("Input cannot be empty.");
-            return;
-        }
 
         List<String> rawBitNumbers = Arrays.asList(bitNumberInput.split(","));
 
