@@ -6,7 +6,17 @@ import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-        String bitNumberInput = "";
+        String bitNumberInput;
+        if (args.length > 0) {
+            // Gunakan argumen dari command line jika ada
+            bitNumberInput = args[0];
+        } else {
+            // Jika tidak ada argumen, minta input dari user (untuk testing lokal)
+            Scanner input = new Scanner(System.in);
+            System.out.print("Please enter bits to convert: ");
+            bitNumberInput = input.nextLine();
+            input.close();
+        }
 
         List<ISO8583DataElements> isoElements = new ArrayList<>();
         isoElements.add(new ISO8583DataElements("bit_0", "mti"));
